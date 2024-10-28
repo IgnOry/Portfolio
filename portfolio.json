@@ -1,0 +1,698 @@
+{
+"Titles":
+	[
+		{
+			"title": "Gigantosaurus: Dino Sports",
+					"context": "Professional Project - Lead Programmer",
+					"platforms": "Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One, Xbox Series, Steam, Windows 10",
+					"year": "2024",
+					"company" : "Blitworks Publishing",
+					"titleImage" : "images/portfolio/Giganto.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/giganto/Giganto1.jpg",
+							"images/portfolio/modals/giganto/Giganto2.jpg",
+							"images/portfolio/modals/giganto/Giganto3.jpg"
+						],
+					"description" : "On your marks for The Giganto Games, a roar-some sports party for one to four dinos! In Gigantosaurus: Dino Sports, you’ll fly across deserts, race across glaciers, blast targets with berrys and more. But look out – Giganto himself might just stomp into the action!<br><br>With lots of game modes you can create your own tournaments, take on AI opponents, or get the gang together for a split-screen party. Can you earn the most medals and win the Super Giganto Pineapple? You’ll have dino-mite fun finding out!",
+					"tasks" : "Main tasks involved Systems implementation (Memory and performance management, Resource loading with Addressables, Savedata, Input and Controller Management, VO Dubbing implementation) and Console Integration (Savesystem, Achievements/Trophies/Activities, User Management and size compression for Nintendo Switch Cartridge), as well as communication with Production and QA, deadline and contents agreements.",
+					"categories" : "<li>Developed for Infinigon Games, working as Lead Programmer</li><li>Built with Unity for Nintendo Switch, PS4, PS5, Xbox One, Xbox Series and PC (Steam and Windows 10)</li>",
+					"trailer" : "https://www.youtube.com/embed/hpRaUBglzMc?si=DZdAklZUgd5wgFbr",
+					"links": 
+						[
+							{
+								"store": "Nintendo eShop Page",
+								"link": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/Gigantosaurus-Dino-Sports-2575318.html"
+							},
+							{
+								"store": "PlayStation Network Page",
+								"link": "https://store.playstation.com/es-es/concept/10007340"
+							},
+							{
+								"store" : "Xbox Page",
+								"link" : "https://www.xbox.com/en-gb/games/store/gigantosaurus-dino-sports/9nldwlfwkfzh"
+							},
+							{
+								"store": "Steam Page",
+								"link": "https://store.steampowered.com/app/2238260/Gigantosaurus_Dino_Sports/"
+							},
+							{
+								"store": "Windows Store",
+								"link": "https://apps.microsoft.com/detail/9nldwlfwkfzh"
+							}
+						],
+				"buttonPage": "https://outrightgames.com/games/gigantosaurus-dino-sports/",
+				"pageTitle" : "Publisher's Game Page"				
+		},
+		{
+			"title": "Everhood: Eternity Edition",
+					"context": "Professional Project - Porting",
+					"platforms": "PlayStation 4, PlayStation 5, Xbox One, Xbox Series",
+					"year": "2023",
+					"company" : "Blitworks Publishing",
+					"titleImage" : "images/portfolio/Everhood.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/Everhood/2.jpg",
+							"images/portfolio/modals/Everhood/3.jpg",
+							"images/portfolio/modals/Everhood/4.jpg"
+						],
+					"description" : "Everhood Eternity Edition presents an unconventional and artistic fusion of rhythm-based gameplay, exploration with role-playing elements and an abstract narrative. Its musical gameplay challenges players reflexes, engaging them in rhythmic battles, and immerses them in a mesmerizing and otherworldly universe. Its experimental gameplay takes ideas from classic 16 bit era RPG titles, and modern games like Undertale, Guitar Hero and Deltarune.<br><br>The narrative of the is subjective and leaves a lot of room for individual interpretation, inviting players to delve into its enigmatic world, questioning the nature of reality, and contemplating the deeper meanings and themes embedded within the game's surreal storytelling.<br><br>The port not only includes the content that is already available on other platforms but also enhances it with 16 new battles made by level designers from the Everhood community, and featuring music from the following 11 renowned composers, and represent a real challenge for the most skilled ones.",
+					"tasks" : "Main tasks involved Porting and integrating Services such as: Activities (PlayStation 5), User Management (Xbox One and Xbox Series) and Achievements/Trophies, Mod Content Integration, SaveSystem, Online Leaderboards and Shader Programming (All Consoles).",
+					"categories" : "<li>Developed for Blitworks Games, working as Unity Console Programmer</li><li>Built with Unity for PS4, PS5, Xbox One and Xbox Series, based on Steam and Nintendo Switch versions</li>",
+					"trailer" : "https://www.youtube.com/embed/1WzuBELNYZg?si=3VArXYcFEDK9lA8V",
+					"links": 
+						[
+							{
+								"store": "PlayStation Network Page",
+								"link": "https://store.playstation.com/es-es/product/EP7652-PPSA09760_00-EVERHOOD000PS5EU/"
+							},
+							{
+								"store" : "Xbox Page",
+								"link" : "https://www.xbox.com/en-us/games/store/everhood-eternity-edition/9npncd6b83wp"
+							}
+						],
+				"buttonPage": "https://blitworks.com/game/everhood-eternity-edition/",
+				"pageTitle" : "Publisher's Game Page"				
+		},
+		{
+			"title": "Parkitect: Deluxe Edition",
+					"context": "Professional Project - Porting",
+					"platforms": "PlayStation 4, PlayStation 5, Xbox One, Xbox Series",
+					"year": "2024",
+					"company" : "Blitworks Publishing",
+					"titleImage" : "images/portfolio/Parkitect.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/parkitect/1.jpg",
+							"images/portfolio/modals/parkitect/2.jpg",
+							"images/portfolio/modals/parkitect/3.jpg"
+						],
+					"description" : "Build and manage your own amusement park in this complete tycoon full of content; a modern take on oldschool simulation games. Find the perfect balance between functionality, design and fun. Take care of your clients' desires and needs, manage entry and attraction prices, decorate to increase immersion, build roller coasters part by part to maximize the fun, but make them functional and without making guests dizzy! Parkitect takes management to the maximum, allowing you to decide on every detail of your park.",
+					"tasks" : "Main tasks involved gamepad based control scheme design and implementation, console Integration (Savesystem, Achievements/Trophies, User Management), DLC and Mods (User Generated Content) integration, performance optimization (C++ Plugins development) and profiling and fixing different Memory Leaks.",
+					"categories" : "<li>Developed for Blitworks Games, working as Unity Console Programmer</li><li>Built with Unity for PS4, PS5, Xbox One and Xbox Series, based on Steam version</li>",
+					"trailer" : "https://www.youtube.com/embed/_QzSgtE68KM?si=0tFbBCKT5-8YOSBI",
+					"links": 
+						[
+							{
+								"store": "PlayStation Network Page",
+								"link": "https://store.playstation.com/en-us/concept/10003816"
+							},
+							{
+								"store" : "Xbox Page",
+								"link" : "https://www.xbox.com/es-es/games/store/parkitect-deluxe-edition/9n52btkt5n3z"
+							}
+						],
+				"buttonPage": "https://blitworks.com/game/parkitect/",
+				"pageTitle" : "Publisher's Game Page"				
+		},
+		{
+			"title": "Pirates Outlaws",
+				"context": "Professional Project",
+				"platforms": "Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One, Xbox Series",
+				"year": "2023",
+				"company" : "Blitworks Publishing",
+				"titleImage" : "images/portfolio/Pirates Outlaws.jpg",
+				"showcaseImages": 
+					[
+						"images/portfolio/modals/Pirates/1.jpg",
+						"images/portfolio/modals/Pirates/2.jpg",
+						"images/portfolio/modals/Pirates/5.jpg"
+					],
+				"description" : "Pirates Outlaws is a roguelike card battler acclaimed by critics and players in which you navigate dangerous seas in order to defeat every outlaw and their masters in tense combats. The game offers plenty of content and unlockables, diverse game modes and a beautiful papercraft artstyle. Your expedition will be full of ambushes and challenges, so get ready, build your card deck and plan deadly combos to become the most reputed pirate!",
+				"tasks" : "Main tasks involved adapting the control scheme and UI, as well as integrating Services such as: User Management (Xbox One and Xbox Series) and Achievements/Trophies, SaveSystem (All Consoles).",
+				"categories" : "<li>Developed for Blitworks Games, working as Unity Console Programmer</li><li>Built with Unity for Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One and Xbox Series based on Steam version</li>",
+				"trailer" : "https://www.youtube.com/embed/Fda8rgiJiVc?si=G98DYm-W1evQ2OL4",
+				"links":
+					[
+						{
+							"store" : "Nintendo eShop Page",
+							"link": "https://www.nintendo.com/us/store/products/pirates-outlaws-switch"
+						},
+						{
+							"store": "PlayStation Network Page",
+							"link": "https://store.playstation.com/en-us/product/UP2106-CUSA28868_00-PIRATESOUTLAWS00"
+						},
+						{
+							"store" : "Xbox Page",
+							"link" : "https://store.playstation.com/en-us/product/UP2106-CUSA28868_00-PIRATESOUTLAWS00"
+						}
+					], 
+				"buttonPage": "https://blitworks.com/game/pirates-outlaws/",
+				"pageTitle" : "Publisher's Game Page"
+		},
+		{
+			"title": "District Dance Battle",
+					"context": "Indie Project",
+					"platforms": "PC",
+					"year": "2019",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/DistricDanceBattle.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/DDB/2.jpg",
+							"images/portfolio/modals/DDB/3.jpg",
+							"images/portfolio/modals/DDB/4.jpg"
+						],
+					"description" : "District Dance Battle is a rhythm game in which you will play as Perico, the best Dancer known in Murcia, in his adventures in Madrid, looking forward to becoming the best Dancer in Spain. The campaign includes 5 different levels, each one with an original song (and a different genre), as well as some commercial songs in the Free mode. Each different level can be played both solo or in local competitive mode, and also has a Hard Mode for those who look for a challenge.",
+					"tasks" : "Main tasks involved Gameplay design and programming, as well as Level Design.",
+					"categories" : "<li>Awarded as Best Game by the Audience at <a href=\"https://twitter.com/FreeStylers_Dev/status/1199244229828108288?ref_src=twsrc%5Etfw\" target=_blank>FIMP 2019</a></li><li>Built with SDL2 and C++</li>",
+					"trailer" : "https://www.youtube.com/embed/1o83elCt6Gc?si=Ar_DYGzgAz_nQJWx",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/District-Dance-Battle"
+							}
+						], 
+				"buttonPage": "https://freestylers-studio.itch.io/district-dance-battle-sdl",
+				"pageTitle" : "Itch.io Page"	
+		},
+		{
+			"title": "Fresh Freaky Fish",
+					"context": "Mermelada Jam #3 Project",
+					"platforms": "Web",
+					"year": "2024",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/FreshFreakyFish.png",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/fish/Fish1.png",
+							"images/portfolio/modals/fish/Fish2.png",
+							"images/portfolio/modals/fish/Fish3.png"
+						],
+					"description" : "A mix between pollution and industrial waste has made every fish in this pond very, very mutated. But now, they look pretty sick! Relax and catch every fish in the encyclopedia, specially the Cabbage Fish, the biggest in the seven seas.",
+					"tasks" : "Main tasks involved UI and systems programming.",
+					"categories" : "<li>Developed as part of the <a href=\"https://itch.io/jam/mermelada-jam-3\" target=_blank>Mermelada Jam #3</a></li><li>Built with Godot</li>",
+					"trailer" : "https://www.youtube.com/embed/RN4lDjzjQjU?si=-LrdhphlhE3gLVAn",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/FreshFreakyFish"
+							}
+						],
+				"buttonPage": "https://freestylers-studio.itch.io/freshfreakyfish",
+				"pageTitle" : "Itch.io Page"		
+		},
+		{
+			"title": "Jefe, La Cuenta",
+					"context": "Málaga Jam 2024 Project",
+					"platforms": "PC & Web",
+					"year": "2024",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/JefeLaCuenta.png",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/jefe/Jefe1.png",
+							"images/portfolio/modals/jefe/Jefe2.png",
+							"images/portfolio/modals/jefe/Jefe3.jpg"
+						],
+					"description" : "Sisebuto has a problem. He likes to drink too much and pay too little. And today's journey home is going to be fun. Everything is going to go from bad to worse.",
+					"tasks" : "Main tasks involved UI and systems programming.",
+					"categories" : "<li>Developed as part of the <a href=\"https://itch.io/jam/malagajam-weekend-18\"target=_blank>Malaga Jam 18</a> with \"From bad to worse\" as theme</li><li>Built with Godot</li>",
+					"trailer" : "https://www.youtube.com/embed/KcHapbUDa00?si=OmX3td1Yirdo-dWd",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/MalagaJam2024"
+							}
+						],
+				"buttonPage": "https://freestylers-studio.itch.io/jefe-la-cuenta",
+				"pageTitle" : "Itch.io Page"		
+		},
+		{
+			"title": "Driftin' Gibbon Time",
+					"context": "Global Game Jam 2024 Project",
+					"platforms": "Web",
+					"year": "2024",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/DGT.png",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/DGT/1.png",
+							"images/portfolio/modals/DGT/2.png",
+							"images/portfolio/modals/DGT/3.png"
+						],
+					"description" : "Gibbon wants BANANA. Gibbon has motorized trycicle. There are no BANANAS on sight. But there are people and animals around the city. Maybe they have BANANAS?",
+					"tasks" : "Main tasks involved Gameplay, Level Design and Systems programming.",
+					"categories" : "<li>Developed as part of the Global Game Jam 2024, with \"Make Me Laugh\" as theme</li><li>Awarded as Best Art by the Jury and Best Game by the Public at <a href=\"https://globalgamejam.org/jam-sites/2024/madrid-game-jam-ucm\"target=_blank>Voxel School/UCM site for Global Game Jam 2024</a></li><li>Built with Godot</li>",
+					"trailer" : "https://www.youtube.com/embed/uJnBRfu4508?si=5FkZftybZpf3Z1gw",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/GoofyAhhCar"
+							}
+						],
+				"buttonPage": "https://freestylers-studio.itch.io/driftin-gibbon-time",
+				"pageTitle" : "Itch.io Page"		
+		},		
+		{
+			"title": "Louse on the Loose",
+					"context": "Global Game Jam 2023 Project",
+					"platforms": "PC",
+					"year": "2023",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/louse.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/Louse/2.jpg",
+							"images/portfolio/modals/Louse/3.jpg",
+							"images/portfolio/modals/Louse/4.jpg"
+						],
+					"description" : "Louse on the Loose is a Top-Down action game in which you will play as a mutant Louse whose objective is to climb the head of its host, cutting as much hairs as possible in the way (completely, thus applying the \"Root\" theme for the Global Game Jam 2023) and fighting different enemmies, including shampoo. This game may or may not include:<br>• Lice<br>• Skin<br>• Trans Rights<br>• One or several violations of the Geneva Convention<br>",
+					"tasks" : "Main tasks involved Gameplay and Systems programming.",
+					"categories" : "<li>Developed as part of the Global Game Jam 2023, with \"Roots\" as theme</li><li>Awarded as \"Most Innovative Game\" in <a href=\"https://globalgamejam.org/2023/jam-sites/madrid-ggj-universidad-complutensevoxel-school\"target=_blank>Voxel School/UCM site for Global Game Jam 2023</a>.</li><li>Built with Unity</li>",
+					"trailer" : "https://www.youtube.com/embed/xTVrDzd_FIw?si=qicq--yiLXvq5TWJ",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/GGameJam2023"
+							}
+						],
+				"buttonPage": "https://freestylers-studio.itch.io/louse-on-the-loose",
+				"pageTitle" : "Itch.io Page"		
+		},
+		{
+			"title": "Hematorrosa",
+					"context": "Sant Jordi Jam 2024 Project",
+					"platforms": "PC & Web",
+					"year": "2024",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/Hematorrosa.png",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/hematorrosa/Hema1.png",
+							"images/portfolio/modals/hematorrosa/Hema2.png",
+							"images/portfolio/modals/hematorrosa/Hema3.png"
+						],
+					"description" : "Accompany Witiza, armed with his sword, and go through the different rooms of the palace to confront the COCOLLONA that intends to raze everything to the ground, with settings as colourful and literary as Little Red Riding Hood, That's Life, a book written by Hatsune Miku, the Communist Manifesto or Don Quixote of La Mancha.",
+					"tasks" : "Main tasks involved systems programming and level design.",
+					"categories" : "<li>Developed as part of the <a href=\"https://itch.io/jam/sant-jordi-24\"target=_blank>Sant Jordi Jam 2024</a></li><li>Built with Godot</li>",
+					"trailer" : "https://www.youtube.com/embed/57OJgwo0zYo?si=zEsuoTINXLuE2kC7",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/SantJordiJam"
+							}
+						],
+				"buttonPage": "https://freestylers-studio.itch.io/hematorosa",
+				"pageTitle" : "Itch.io Page"		
+		},		
+		{
+			"title": "Apruébame Esta",
+					"context": "Gift Jam 2023 Project",
+					"platforms": "Web",
+					"year": "2023",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/ApruebameEsta.png",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/Apruebame/1.png",
+							"images/portfolio/modals/Apruebame/2.png",
+							"images/portfolio/modals/Apruebame/3.png"
+						],
+					"description" : "Tired of failing and failing, Ragnahilda has not only not given up, but is going to fight for her pass in the noblest of ways. A duel to the death with the most iconic professors of her faculty. Boxing. And to the rhythm of her favourite songs.<br><br>• Female protagonist with the name of a Visigoth queen.<br>• Not suitable for CPR<br>• 100% own and original content",
+					"tasks" : "Main tasks involved Systems Programming.",
+					"categories" : "<li>Developed as part of the <a href=\"https://itch.io/jam/gift-jam-2023\" target=_blank>Gift Jam 2023</a></li><li>Built with Godot</li>",
+					"trailer" : "https://www.youtube.com/embed/c1AQ84mtQfM?si=H7aEXOwN33r2rAYH",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/GiftJam2324"
+							}
+						],
+				"buttonPage": "https://freestylers-studio.itch.io/apruebame-esta",
+				"pageTitle" : "Itch.io Page"		
+		},		
+		{
+			"title": "Una Voz En Cancedo",
+					"context": "Indie Spain Game Jam 2023 Project",
+					"platforms": "PC",
+					"year": "2023",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/VozCancedo.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/Cancedo/2.jpg",
+							"images/portfolio/modals/Cancedo/3.jpg",
+							"images/portfolio/modals/Cancedo/4.jpg"
+						],
+					"description" : "Behind every eerie silence there is always a rumble ready to shatter it to pieces.<br><br>Delve into Cancedo, a small rural village where its wacky characters are destined to be completely ripped apart by nightfall.<br><br>Investigate, dialogue, obtain and combine items in this adventure game to help the villagers and solve their problems as a sinister script awaits them in their death.",
+					"tasks" : "Main tasks involved Systems Programming and Dialogue Writing.",
+					"categories" : "<li>Developed as part of the <a href=\"https://itch.io/jam/indie-spain-jam-23\" target=_blank>Indie Spain Game Jam 2023</a>, with \"The Night Falls\" as theme</li><li>Built with Unity</li>",
+					"trailer" : "https://www.youtube.com/embed/63GtQDk2dgg?si=3Lm7YIP4wk4jbpVS",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/IndieSpainJam2023"
+							}
+						],
+				"buttonPage": "https://freestylers-studio.itch.io/una-voz-en-cancedo",
+				"pageTitle" : "Itch.io Page"	
+		},		
+		{
+			"title": "Motor Casa Paco",
+					"context": "Custom Game Engine",
+					"platforms": "PC",
+					"year": "2020",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/engine.jpg",
+					"showcaseImages": 
+						[],
+					"description" : "Motor Casa Paco is a 3D Game Engine built with C++ in a 4-month span. Thanks to its component-based architecture and data-driven structure, once a basic project core is established, it is easy to add more content to the project.<br><br>The UI side is managed with CEGUI, which uses its own layout system that allows developers to combine 2D and 3D views without further problems.<br><br>FMOD is used to handle the whole sound system, allowing the use of dynamic and adaptative music, as well as different channels for SFX and music.<br><br>Last but not least, Bullet Physics controls all the Physics related side, allowing the use of different shapes with a great performance.",
+					"tasks" : "Main tasks involved Architecture Design and UI Systems Programming.",
+					"categories" : "<li>Developed as part of the Projects 3 subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li><li>Built with Ogre3D (Core), Bullet Physics (Physics), FMOD (Sound), CEGUI (UI) and C++</li>",
+					"trailer" : "",
+					"links": 
+						[
+						],
+				"buttonPage": "https://github.com/freesstylers/Untitled-Motor",
+				"pageTitle" : "Github Repository"			
+		},		
+		{
+			"title": "Mauriçius Nativitatem",
+					"context": "JamOn 2021 Project",
+					"platforms": "PC",
+					"year": "2021",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/Mauritius.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/Mauritius/1.jpg",
+							"images/portfolio/modals/Mauritius/2.jpg",
+							"images/portfolio/modals/Mauritius/3.jpg"
+						],
+					"description" : "Mauriçius Nativitatem is a rhythm game inspired by Patapon (the player is given patterns that have to be repeated in order to succeed), in which you will be helping Mauriçius, our fish main character, to give birth to his son, by collecting souls and blood in order to be able to perform the ritual needed.",
+					"tasks" : "Main tasks involved Gameplay and Systems programming.",
+					"categories" : "<li>Developed as part of the JamOn 2021, with \"Birth\" as theme</li><li>Awarded as the 2nd Best Game in the <a href=\"https://itch.io/jam/jamon2021\" target=_blank>JamOn 2021</a></li><li>Built with Unity</li>",
+					"trailer" : "https://www.youtube.com/embed/Wj0YmlpuOug?si=vokDxG6EKk-xXiD8",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/JamOn"
+							}
+						],
+				"buttonPage": "https://freestylers-studio.itch.io/mauricius-nativitatem",
+				"pageTitle" : "Itch.io Page"			
+		},		
+		{
+			"title": "Tefege",
+					"context": "Final Degree Project",
+					"platforms": "PC",
+					"year": "2021",
+					"company" : "Horacio Studios",
+					"titleImage" : "images/portfolio/Tefege.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/Tefege/1.jpg",
+							"images/portfolio/modals/Tefege/2.jpg",
+							"images/portfolio/modals/Tefege/3.jpg"
+						],
+					"description" : "TeFeGe is an online multiplayer shooter, with a Top Down perspective, in which the player will be able to choose from 5 different characters, each one with a different weapon and special ability, to be paired with an opponent in a 3 round duel. The game was part of a project in Matchmaking Research, so most of the focus was put into measuring the abilities of the player, based on the performance shown, and the consequent ranking and matchmaking of the players.",
+					"tasks" : "Main tasks involved Gameplay design and programming, as well as the matchmaking side.",
+					"categories" : "<li>Developed as part of the Final Degree Project subject of the Degree in Videogame Development at Universidad Complutense de Madrid, focusing on Matchmaking</li><li>Built with Unity, as well as Mirror for the server side</li>",
+					"trailer" : "https://www.youtube.com/embed/pD1_a9u3ve0?si=uYd44rJ_dWc5JmOI",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/HoracioStudios/TeFeGe"
+							}
+						],
+				"buttonPage": "https://tefege.itch.io/tefege",
+				"pageTitle" : "Itch.io Page"			
+		},		
+		{
+			"title": "Vaya Canicastañazos",
+					"context": "Indie Project",
+					"platforms": "PC",
+					"year": "2020",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/canicastanazos.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/Canicas/2.jpg",
+							"images/portfolio/modals/Canicas/3.jpg",
+							"images/portfolio/modals/Canicas/5.jpg"
+						],
+					"description" : "Vaya Canicastañazos is a 3D platform game in which the player will be controlling a marble through 16 different levels, with 3 different collectables each. Inspired by Monkey Ball, you will need to be careful not to fall from the level to avoid unnecesary restarts. The player will also be able to beat the achieved best times for an additional challenge.",
+					"tasks" : "Main tasks involved UI Programming and Level Design.",
+					"categories" : "<li>Developed as part of the Projects 3 subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li><li>Built with Motor Casa Paco (Custom Game Engine based on Ogre3D) and C++</li>",
+					"trailer" : "https://www.youtube.com/embed/nYWnfBoHSTE?si=HNKimviFfWs0Sw4V",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/Vaya-Canicastanyazos"
+							}
+						],
+				"buttonPage": "https://freestylers-studio.itch.io/vaya-canicastanhazos",
+				"pageTitle" : "Itch.io Page"			
+		},		
+		{
+			"title": "A Toda Pastilla",
+					"context": "Indie Project",
+					"platforms": "PC",
+					"year": "2020",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/pastilla.png",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/Pastilla/1.jpg",
+							"images/portfolio/modals/Pastilla/2.jpg",
+							"images/portfolio/modals/Pastilla/3.jpg"
+						],
+					"description" : "A Toda Pastilla is a vertical bullet hell in which the player will be giving pills (shooting) to elder people (enemies), with the ability to stack different special abilities to overcome the increasing difficulty, always surrounded by the dynamic music system.",
+					"tasks" : "Main tasks involved UI Programming and Game Design.",
+					"categories" : "<li>Developed as part of the Projects 3 subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li><li>Built with Motor Casa Paco (Custom Game Engine based on Ogre3D) and C++</li>",
+					"trailer" : "https://www.youtube.com/embed/CEcCk1sWxec?si=WX64ZvEQFab2czMV",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/A-Toda-Pastilla"
+							}
+						],
+				"buttonPage": "https://freestylers-studio.itch.io/a-toda-pastilla",
+				"pageTitle" : "Itch.io Page"			
+		},		
+		{
+			"title": "FDI",
+					"context": "Gift Jam 2021 Project",
+					"platforms": "PC",
+					"year": "2021",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/FDI.png",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/FDI/2.jpg",
+							"images/portfolio/modals/FDI/3.jpg",
+							"images/portfolio/modals/FDI/4.jpg"
+						],
+					"description" : "FDI (Federal Department of Investigations) is a narrative adventure game in which the player takes control of Eurico, a student of the Computer Science Faculty (which serves as the game scenery, with a few adaptations for story and humour purposes), who is involved as a witness in the Dean murder, leading to a bigger investigation to solve the mystery.",
+					"tasks" : "Main tasks involved Gameplay Programming and Level Design.",
+					"categories" : "<li>Developed as part of the Gift Jam 2021</li><li>Built with Unity</li>",
+					"trailer" : "",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/GiftJam2021"
+							}
+						],
+				"buttonPage": "https://freestylers-studio.itch.io/fdi",
+				"pageTitle" : "Itch.io Page"			
+		},		
+		{
+			"title": "The Cat That Watched The Stars (and viceversa)",
+					"context": "Mermelada Jam 2023 Project",
+					"platforms": "Web",
+					"year": "2023",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/cat.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/Cat/2.jpg",
+							"images/portfolio/modals/Cat/3.jpg",
+							"images/portfolio/modals/Cat/4.jpg"
+						],
+					"description" : "Some say that cats can see beyond the planes of reality we humans are used to, and can even interact with entities beyond our comprehension.<br><br>Watch the starry sky and capture the shooting stars and fireworks that you, a curious kitty, reach out with your paw.",
+					"tasks" : "Main tasks involved Systems and UI Programming.",
+					"categories" : "<li>Developed as part of the <a href=\"https://itch.io/jam/mermelada-jam\" target=_blank>Mermelada Jam 2023</a></li><li>Built with Godot (using C# and GDScript)</li>",
+					"trailer" : "https://www.youtube.com/embed/kdeup3j2obk?si=jDR3MB6yqsUNB1_y",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/freesstylers/GiftJam2324"
+							}
+						],
+				"buttonPage": "https://freestylers-studio.itch.io/cat-watched-stars-viceversa",
+				"pageTitle" : "Itch.io Page"			
+		},		
+		{
+			"title": "Project Settlers",
+					"context": "Student Project",
+					"platforms": "Web",
+					"year": "2018",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/modals/settlers/1.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/settlers/1.jpg",
+							"images/portfolio/modals/settlers/2.jpg",
+							"images/portfolio/modals/settlers/3.jpg"
+						],
+					"description" : "Project Settlers is a Resource Management game, in which the player will be in control of a population in need of help to survive, requiring shelter, food, water and resources to increase their happiness, with a retro style, mimicking old Windows UI.",
+					"tasks" : "Main tasks involved Gameplay and UI Programming.",
+					"categories" : "<li>Developed as part of the Videogame Programming in Interpreted Languages subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li><li>Built with Phaser</li>",
+					"trailer" : "",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/javiarias/Project-Settlers"
+							}
+						],
+				"buttonPage": "https://javiarias.github.io/Project-Settlers/dist/",
+				"pageTitle" : "Game's Web Page"			
+		},		
+		{
+			"title": "Paparazzi Infiltration",
+					"context": "Student Project",
+					"platforms": "PC",
+					"year": "2018",
+					"company" : "",
+					"titleImage" : "images/portfolio/modals/paparazzi/1.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/paparazzi/1.jpg",
+							"images/portfolio/modals/paparazzi/2.jpg",
+							"images/portfolio/modals/paparazzi/3.jpg"
+						],
+					"description" : "Paparazzi Infiltration is a stealth game in which de player will control a Paparazzi in the 80s, which has to infiltrate in a Hotel to take photos of different stars, including Michael Jordan, Maradona, Michael Jackson, Darth Vader... always avoiding the guards, of course.",
+					"tasks" : "Main tasks involved Gameplay Programming and Level Design.",
+					"categories" : "<li>Developed as part of the Projects 1 subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li><li>Built with Unity</li>",
+					"trailer" : "https://www.youtube.com/embed/sKz53jmHGzA?si=tPeXZ9hFnrzD3-PY",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/DavidCarmonaFauste/Paparazzi"
+							}
+						],
+				"buttonPage": "https://davidcarmonafauste.github.io/Paparazzi/",
+				"pageTitle" : "Game's Web Page"			
+		},		
+		{
+			"title": "Chess & Tails",
+					"context": "Global Game Jam 2022 Project",
+					"platforms": "PC",
+					"year": "2022",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/chesstails.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/chess/2.jpg",
+							"images/portfolio/modals/chess/3.jpg",
+							"images/portfolio/modals/chess/4.jpg"
+						],
+					"description" : "Chess & Tails is a turn based RPG game that combines Chess mechanics with roguelike concepts. To apply the \"Duality\", the player is given 2 choices (Style, Offense and Defensive, and Weapon, Melee and Ranged) to determine the stats that will be used in battle. This system uses Chess pieces as enemies, with their characteristic moves, that you will be able to attack to advance to more difficult rounds. Prior to each level, a coin will be flipped, allowing the player to choose between 2 positive perks (if heads) or dealing with a negative one (if tails), which will be stacked through the game, making it easier (or harder) to go further.",
+					"tasks" : "Main tasks involved Systems and Gameplay Programming.",
+					"categories" : "<li>Developed as part of the Global Game Jam 2022, with \"Duality\" as theme</li><li>Built with Unity</li>",
+					"trailer" : "",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/IgnOry/GlobalGameJam2022"
+							}
+						],
+				"buttonPage": "https://gorn99.itch.io/chess-tails",
+				"pageTitle" : "Itch.io Page"			
+		},		
+		{
+			"title": "Out Run",
+					"context": "Student Project (PlayStation 4)",
+					"platforms": "Not published due to NDA",
+					"year": "2021",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/modals/outrun/1.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/outrun/1.jpg",
+							"images/portfolio/modals/outrun/2.jpg"
+						],
+					"description" : "Clone of the classic Out Run game, developed from scratch in a multiplatform project, both for PC and PlayStation 4, including the use of the official SDK and Tools provided by Sony.",
+					"tasks" : "Main tasks involved Programming for different platforms.",
+					"categories" : "<li>Developed as part of the Videogames in Console subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li><li>Built with SDL2, C++ and C</li>",
+					"trailer" : "",
+					"links": 
+						[],
+				"buttonPage": "",
+				"pageTitle" : ""			
+		},
+		{
+			"title": "Off The Line",
+					"context": "Student Project",
+					"platforms": "PC, Android",
+					"year": "2021",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/modals/off/1.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/off/1.jpg",
+							"images/portfolio/modals/off/2.jpg",
+							"images/portfolio/modals/off/3.jpg"
+						],
+					"description" : "Clone of \"Off the Line\", developed from scratch in a multiplatform project both for PC and Android, including the use of Android Studio.",
+					"tasks" : "Main tasks involved Programming.",
+					"categories" : "<li>Developed as part of the Videogames in Mobile subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li><li>Built with Android Studio and Java</li>",
+					"trailer" : "",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/javiarias/Moviles/tree/main/Practica_2"
+							}
+						],
+				"buttonPage": "",
+				"pageTitle" : ""			
+		},
+		{
+			"title": "Mazes & More",
+					"context": "Student Project",
+					"platforms": "PC, Android",
+					"year": "2021",
+					"company" : "FreeStylers Studio",
+					"titleImage" : "images/portfolio/modals/mazes/1.jpg",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/mazes/1.jpg",
+							"images/portfolio/modals/mazes/2.jpg",
+							"images/portfolio/modals/mazes/3.jpg"
+						],
+					"description" : "Clone of \"Mazes & More\", developed with the original game assets in a multiplatform project both for PC and Android.",
+					"tasks" : "Main tasks involved Programming.",
+					"categories" : "<li>Developed as part of the Videogames in Mobile subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li><li>Built with Unity</li>",
+					"trailer" : "",
+					"links": 
+						[
+							{
+								"store" : "Github Repository",
+								"link":	"https://github.com/javiarias/Moviles/tree/main/Practica%203"
+							}
+						],
+				"buttonPage": "",
+				"pageTitle" : ""			
+		}
+	]
+}

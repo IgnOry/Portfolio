@@ -26,6 +26,112 @@
 	<script src="js/modernizr.js"></script>
 	<script src="js/pace.min.js"></script>
 
+	<!-- "C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security --disable-gpu --user-data-dir=~/chromeTemp-->
+
+	<script>
+		function load() {
+	
+			class portfolioData
+			{
+				constructor(title, context, platforms, year, company, titleImage, showcaseImages, description, tasks, categories, trailer, links, buttonPage, pageTitle) 
+				{
+    				this.title = title;
+    				this.context = context;
+					this.platforms = platforms;
+					this.year = year;
+					this.company = company
+					this.titleImage = titleImage;
+					this.showcaseImages = showcaseImages;
+					this.description = description;
+					this.tasks = tasks;
+					this.categories = categories;
+					this.trailer = trailer;
+					this.links = links;
+					this.buttonPage = buttonPage;
+					this.pageTitle = pageTitle;
+  				}
+			}
+
+	   var portfolioDataArray = [];
+
+	   var data;
+		var i = 0;
+	   fetch("portfolio.json")
+    	.then((response) => response.json())
+    	.then((json) => 
+			{ 		
+				for(i = 0;i < json["Titles"].length; i++)
+				{
+					var f = json["Titles"][i];
+					var portfolioTitle = new portfolioData(f["title"], f["context"], f["platforms"], f["year"], f["company"], f["titleImage"], f["showcaseImages"], f["description"], f["tasks"], f["categories"], f["trailer"], f["links"], f["buttonPage"], f["pageTitle"]);
+					portfolioDataArray.push(portfolioTitle);
+				}
+
+				var wrapper = $('#folio-wrapper'), container;
+
+				for (var key in portfolioDataArray)
+				{
+					var s =('<div class="folio-item-cell"><h3 class="folio-title">' + portfolioDataArray[key].title + '</h3><span class="folio-types">' + portfolioDataArray[key].company + '<br>' + portfolioDataArray[key].context + '<br>Published on ' + portfolioDataArray[key].platforms + '<br>' + portfolioDataArray[key].year +'</span></div></div></a></div></div>');
+
+					document.getElementById('titleImage'+key).src = portfolioDataArray[key].titleImage;
+					
+					var a = document.getElementById('title'+key);
+					a.innerHTML = s;
+				}				
+
+				for (var key in portfolioDataArray)
+				{
+				
+					var s = "";
+					s += ('<div class="slideshow-container">');
+					
+					for (a = 1; a <= portfolioDataArray[key].showcaseImages.length; a++)
+					{
+						s +=('<div class="mySlides fade"><div class="numbertext">' + a + ' /' + portfolioDataArray[key].showcaseImages.length + '</div><img src="' + portfolioDataArray[key].showcaseImages[a-1] +'" style="width:100%"></div>');
+					}
+
+					s +=('<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a></div><br><div style="text-align:center">');
+
+					for (a = 1; a <= portfolioDataArray[key].showcaseImages.length; a++)
+					{
+						s +=('<span class="dot" onclick="currentSlide(' + a +')"></span>');
+					}
+
+					s +=('</div><div class="description-box"><h4>' + portfolioDataArray[key].title + '</h4><p>' + portfolioDataArray[key].description + '</p><hr><p>' + portfolioDataArray[key].tasks + '</p><hr><div class="categories">' + portfolioDataArray[key].categories + '<br><br></div>');
+					
+					if (portfolioDataArray[key].trailer != "")
+					{
+						s += ('<center><iframe class="embed-responsive-item" width="640" height="360" src="' + portfolioDataArray[key].trailer + '"></iframe></center>');
+					}
+					
+					s += ('<br><div class="row button-section"><div class="col-twelve"><center>');
+						
+					for (i = 0; i < portfolioDataArray[key].links.length; i++)
+					{
+						s += ('<a href=' + portfolioDataArray[key].links[i]["link"] +' target="_blank" class="button button-primary">' + portfolioDataArray[key].links[i]["store"] + '</a>');
+					}						
+					
+					s += ('</center></div></div></div>');
+
+					if (portfolioDataArray[key].buttonPage != "" && portfolioDataArray[key].pageTitle != "")
+					{
+						s += ('<div class="link-box"><a href=' + portfolioDataArray[key].buttonPage + ' target="_blank">'+ portfolioDataArray[key].pageTitle + '</a><a href="#" class="popup-modal-dismiss">Close</a></div></div>');
+					}
+					else
+					{
+						s += ('<div class="link-box"><a></a><a href="#" class="popup-modal-dismiss">Close</a></div></div>');
+					}
+
+					document.getElementById('modal-'+key).innerHTML = s;
+				}
+			}
+ 		);
+	}
+	</script>
+
+	<script>
+	load();
+  	</script>
    <!-- favicons
 	================================================== -->
 	<link rel="icon" type="image/png" href="Icon.ico">
@@ -121,23 +227,34 @@
 		   <!-- portfolio-wrapper -->
 		 <div id="folio-wrapper" class="block-1-2 block-mob-full stack">
 
+			<div class="bgrid folio-item" onclick="currentSlide(1)">
+				<div class="item-wrap">
+					<img id="titleImage0" src="images/portfolio/Giganto.jpg">
+				   <a href="#modal-0" class="overlay">	                  	           
+					  <div id="title0" class="folio-item-table">
+														
+					  </div>                    
+				   </a>
+				</div>	               
+				 </div> <!-- /folio-item -->
+
 			 <div class="bgrid folio-item" onclick="currentSlide(1)">
 			   <div class="item-wrap">
-				   <img src="images/portfolio/Everhood.jpg">
-				  <a href="#modal-01" class="overlay">	                  	           
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-									<h3 class="folio-title">Everhood - Eternity Edition</h3>	     					    
-									  <span class="folio-types">
-										Blitworks Publishing
-										<br>
-										  Professional Project - Porting
-										  <br>
-										  Published on PlayStation 4, PlayStation 5, Xbox One, Xbox Series
-										  <br>
-										  2023
-									</span>
-								</div>	                      	
+				   <img id="titleImage1" src="images/portfolio/Everhood.jpg">
+				  <a href="#modal-1" class="overlay">	                  	           
+					 <div id="title1" class="folio-item-table">
+						 	                      	
+					 </div>                    
+				  </a>
+			   </div>	               
+				</div> <!-- /folio-item -->
+				
+			<div class="bgrid folio-item" onclick="currentSlide(1)">
+			   <div class="item-wrap">
+				   <img id="titleImage2" src="images/portfolio/Parkitect.jpg">
+				  <a href="#modal-2" class="overlay">	                  	           
+					 <div id="title2" class="folio-item-table">
+						 	                      	
 					 </div>                    
 				  </a>
 			   </div>	               
@@ -145,21 +262,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 			   <div class="item-wrap">
-				   <img src="images/portfolio/Pirates Outlaws.jpg">
-				   <a href="#modal-02" class="overlay">              		                  
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Pirates Outlaws</h3>	     					    
-									 <span class="folio-types">
-										Blitworks Publishing
-										<br>  
-										Professional Project - Porting
-										  <br>
-										  Published on Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One, Xbox Series
-										  <br>
-										  2023
-								   </span>		     		
-								</div> 	                      	
+				   <img id="titleImage3" src="images/portfolio/Pirates Outlaws.jpg">
+				   <a href="#modal-3" class="overlay">              		                  
+					 <div id="title3" class="folio-item-table">
+                    	
 					 </div>                    
 				  </a>
 			   </div>
@@ -167,21 +273,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/DistricDanceBattle.jpg">
-				  <a href="#modal-03" class="overlay">             		                  
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">District Dance Battle</h3>	     					    
-									 <span class="folio-types">
-										FreeStylers Studio
-										<br>
-										  Indie Project
-										  <br>
-										  Published on PC (Standalone)
-										  <br>
-										  2019
-								   </span>		     		
-								</div> 	                      	
+				   <img id="titleImage4" src="images/portfolio/DistricDanceBattle.jpg">
+				  <a href="#modal-4" class="overlay">             		                  
+					 <div id="title4" class="folio-item-table">
+                    	
 					 </div>                    
 				  </a>
 			   </div>
@@ -189,21 +284,32 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/DGT.png">
-				  <a href="#modal-20" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Driftin' Gibbon Time</h3>	     					    
-									 <span class="folio-types">
-										FreeStylers Studio
-										<br>
-										  Global Game Jam 2024 Project
-										  <br>
-										  Published on PC (Web)
-										  <br>
-										  2024
-								   </span>		     		
-								</div>	                      	
+						<img id="titleImage5" src="images/portfolio/FreshFreakyFish.png">
+					   <a href="#modal-5" class="overlay">	                  	           
+						  <div id="title5" class="folio-item-table">
+															
+						  </div>                    
+					   </a>
+					</div>	               
+					 </div> <!-- /folio-item -->
+
+				<div class="bgrid folio-item" onclick="currentSlide(1)">
+					<div class="item-wrap">
+						<img id="titleImage6" src="images/portfolio/JefeLaCuenta.png">
+					   <a href="#modal-6" class="overlay">	                  	           
+						  <div id="title6" class="folio-item-table">
+															
+						  </div>                    
+					   </a>
+					</div>	               
+					 </div> <!-- /folio-item -->
+
+				<div class="bgrid folio-item" onclick="currentSlide(1)">
+					<div class="item-wrap">
+				   <img id="titleImage7" src="images/portfolio/DGT.png">
+				  <a href="#modal-7" class="overlay">
+					 <div id="title7" class="folio-item-table">
+                     	
 					 </div>                    
 				  </a>
 			   </div>
@@ -211,21 +317,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/louse.jpg">
-				  <a href="#modal-06" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Louse on the Loose</h3>	     					    
-									 <span class="folio-types">
-										FreeStylers Studio
-										<br>
-										  Global Game Jam 2023 Project
-										  <br>
-										  Published on PC (Standalone)
-										  <br>
-										  2023
-								   </span>		     		
-								</div>	                      	
+				   <img id="titleImage8" src="images/portfolio/louse.jpg">
+				  <a href="#modal-8" class="overlay">
+					 <div id="title8" class="folio-item-table">
+                      	
 					 </div>                    
 				  </a>
 			   </div>
@@ -233,21 +328,21 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/ApruebameEsta.png">
-				  <a href="#modal-12" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Apruébame Esta</h3>	     					    
-									 <span class="folio-types">
-										FreeStylers Studio
-										<br>
-										  Gift Jam 2023 Project
-										  <br>
-										  Published on Web
-										  <br>
-										  2024
-								   </span>		     		
-								</div>	                      	
+						<img id="titleImage9" src="images/portfolio/Hematorrosa.png">
+					   <a href="#modal-9" class="overlay">	                  	           
+						  <div id="title9" class="folio-item-table">
+															
+						  </div>                    
+					   </a>
+					</div>	               
+					 </div> <!-- /folio-item -->
+
+				<div class="bgrid folio-item" onclick="currentSlide(1)">
+					<div class="item-wrap">
+				   <img id="titleImage10" src="images/portfolio/ApruebameEsta.png">
+				  <a href="#modal-10" class="overlay">
+					 <div id="title10" class="folio-item-table">
+                      	
 					 </div>                    
 				  </a>
 			   </div>
@@ -255,21 +350,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/VozCancedo.jpg">
+				   <img id="titleImage11" src="images/portfolio/VozCancedo.jpg">
 				  <a href="#modal-11" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Una Voz En Cancedo</h3>	     					    
-									 <span class="folio-types">
-										FreeStylers Studio
-										<br>
-										  Indie Spain Game Jam 2023 Project
-										  <br>
-										  Published on PC (Standalone)
-										  <br>
-										  2023
-								   </span>		     		
-								</div>	                      	
+					 <div id="title11" class="folio-item-table">
+                      	
 					 </div>                    
 				  </a>
 			   </div>
@@ -277,19 +361,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/engine.jpg">
-				  <a href="#modal-07" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Motor Casa Paco</h3>	     					    
-									 <span class="folio-types">
-										FreeStylers Studio
-										<br>
-										  Custom Game Engine
-										  <br>
-										  2020
-								   </span>		     		
-								</div>	                      	
+				   <img id="titleImage12" src="images/portfolio/engine.jpg">
+				  <a href="#modal-12" class="overlay">
+					 <div id="title12" class="folio-item-table">
+                      	
 					 </div>                    
 				  </a>
 			   </div>
@@ -297,21 +372,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/Mauritius.jpg">
-				  <a href="#modal-05" class="overlay">             		                  
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Mauriçius Nativitatem</h3>	     					    
-									 <span class="folio-types">
-										FreeStylers Studio
-										<br>
-										JamOn 2021 Project
-										<br>
-										Published on PC (Standalone)
-										<br>
-										2021
-									</span>		     		
-								</div> 	                      	
+				   <img id="titleImage13" src="images/portfolio/Mauritius.jpg">
+				  <a href="#modal-13" class="overlay">             		                  
+					 <div id="title13" class="folio-item-table">
+	                      	
 					 </div>                    
 				  </a>
 			   </div>
@@ -319,19 +383,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/Tefege.jpg">
-				  <a href="#modal-04" class="overlay">                  	                 
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Tefege</h3>	     					    
-									 <span class="folio-types">
-										  Final Degree Project
-										  <br>
-										  Published on PC (Standalone)
-										  <br>
-										  2021
-								   </span>		     		
-								</div>  	                      	
+				   <img id="titleImage14" src="images/portfolio/Tefege.jpg">
+				  <a href="#modal-14" class="overlay">                  	                 
+					 <div id="title14" class="folio-item-table">
+  	                      	
 					 </div>                    
 				  </a>
 			   </div>
@@ -339,19 +394,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/canicastanazos.jpg">
-				  <a href="#modal-08" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Vaya Canicastañazos</h3>	     					    
-									 <span class="folio-types">
-										FreeStylers Studio
-										<br>
-										  Published on PC (Standalone)
-										  <br>
-										  2020
-								   </span>		     		
-								</div>	                      	
+				   <img id="titleImage15" src="images/portfolio/canicastanazos.jpg">
+				  <a href="#modal-15" class="overlay">
+					 <div id="title15" class="folio-item-table">
+						                  	
 					 </div>                    
 				  </a>
 			   </div>
@@ -359,19 +405,10 @@
 				
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/pastilla.png">
-				  <a href="#modal-09" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">A Toda Pastilla</h3>	     					    
-									 <span class="folio-types">
-										FreeStylers Studio
-										<br>
-										Published on PC (Standalone)
-										<br>
-										2020
-									</span>		     		
-								</div>	                      	
+				   <img id="titleImage16" src="images/portfolio/pastilla.png">
+				  <a href="#modal-16" class="overlay">
+					 <div id="title16" class="folio-item-table">
+	                      	
 					 </div>                    
 				  </a>
 			   </div>
@@ -379,21 +416,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/FDI.png">
-				  <a href="#modal-10" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">FDI</h3>	     					    
-									 <span class="folio-types">
-										FreeStylers Studio
-										<br>
-										  Gift Jam 2021 Project
-										  <br>
-										  Published on PC (Standalone)
-										  <br>
-										  2022
-								   </span>		     		
-								</div>	                      	
+				   <img  id="titleImage17" src="images/portfolio/FDI.png">
+				  <a href="#modal-17" class="overlay">
+					 <div id="title17" class="folio-item-table">
+						                 	
 					 </div>                    
 				  </a>
 			   </div>
@@ -401,21 +427,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/cat.jpg">
-				  <a href="#modal-13" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">The Cat That Watched The Stars (and viceversa)</h3>	     					    
-									 <span class="folio-types">
-										FreeStylers Studio
-										<br>
-										  Mermelada Jam 2023 Project
-										  <br>
-										  Published on Web
-										  <br>
-										  2023
-								   </span>		     		
-								</div>	                      	
+				   <img id="titleImage18" src="images/portfolio/cat.jpg">
+				  <a href="#modal-18" class="overlay">
+					 <div id="title18" class="folio-item-table">
+                      	
 					 </div>                    
 				  </a>
 			   </div>
@@ -423,19 +438,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/modals/settlers/1.jpg">
-				  <a href="#modal-15" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Project Settlers</h3>	     					    
-									 <span class="folio-types">
-										  Student Project
-										  <br>
-										  Published on Web
-										  <br>
-										  2018
-								   </span>		     		
-								</div>	                      	
+				   <img id="titleImage19" src="images/portfolio/modals/settlers/1.jpg">
+				  <a href="#modal-19" class="overlay">
+					 <div id="title19" class="folio-item-table">
+	                      	
 					 </div>                    
 				  </a>
 			   </div>
@@ -443,19 +449,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/modals/paparazzi/1.jpg">
-				  <a href="#modal-16" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Paparazzi Infiltration</h3>	     					    
-									 <span class="folio-types">
-										  Student Project
-										  <br>
-										  Published on PC (Standalone)
-										  <br>
-										  2018
-								   </span>		     		
-								</div>	                      	
+				   <img id="titleImage20" src="images/portfolio/modals/paparazzi/1.jpg">
+				  <a href="#modal-20" class="overlay">
+					 <div id="title20" class="folio-item-table">
+                     	
 					 </div>                    
 				  </a>
 			   </div>
@@ -463,19 +460,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/chesstails.jpg">
-				  <a href="#modal-14" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Chess & Tails</h3>	     					    
-									 <span class="folio-types">
-										  Global Game Jam 2022 Project
-										  <br>
-										  Published on PC (Standalone)
-										  <br>
-										  2022
-								   </span>		     		
-								</div>	                      	
+				   <img id="titleImage21" src="images/portfolio/chesstails.jpg">
+				  <a href="#modal-21" class="overlay">
+					 <div id="title21" class="folio-item-table">
+	                      	
 					 </div>                    
 				  </a>
 			   </div>
@@ -483,19 +471,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/modals/outrun/1.jpg">
-				  <a href="#modal-17" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Out Run</h3>	     					    
-									 <span class="folio-types">
-										  Student Project (PlayStation 4)
-										  <br>
-										  Not published due to NDA
-										  <br>
-										  2021
-								   </span>		     		
-								</div>	                      	
+				   <img id="titleImage22" src="images/portfolio/modals/outrun/1.jpg">
+				  <a href="#modal-22" class="overlay">
+					 <div id="title22" class="folio-item-table">
+	                      	
 					 </div>                    
 				  </a>
 			   </div>
@@ -503,17 +482,10 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/modals/off/1.jpg">
-				  <a href="#modal-18" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Off The Line</h3>	     					    
-									 <span class="folio-types">
-										  Student Project
-										  <br>
-										  2021
-								   </span>		     		
-								</div>	                      	
+				   <img id="titleImage23" src="images/portfolio/modals/off/1.jpg">
+				  <a href="#modal-23" class="overlay">
+					 <div id="title23" class="folio-item-table">
+	                      	
 					 </div>                    
 				  </a>
 			   </div>
@@ -521,1264 +493,115 @@
 
 				<div class="bgrid folio-item" onclick="currentSlide(1)">
 					<div class="item-wrap">
-				   <img src="images/portfolio/modals/mazes/1.jpg">
-				  <a href="#modal-19" class="overlay">
-					 <div class="folio-item-table">
-						 <div class="folio-item-cell">
-							 <h3 class="folio-title">Mazes & More</h3>	     					    
-									 <span class="folio-types">
-										  Student Project
-										  <br>
-										  2021
-								   </span>		     		
-								</div>	                      	
+				   <img id="titleImage24" src="images/portfolio/modals/mazes/1.jpg">
+				  <a href="#modal-24" class="overlay">
+					 <div id="title24" class="folio-item-table">
+						                  	
 					 </div>                    
 				  </a>
 			   </div>
 				</div> <!-- /folio-item -->  
 			<!-- modal popups - begin
 			============================================================= -->
-				<div id="modal-01" class="popup-modal slider mfp-hide">	
-					<!-- Slideshow container -->
-					<div class="slideshow-container">
+				<div id="modal-0" class="popup-modal slider mfp-hide">	
+				      
+			    </div> <!-- /modal-0 -->
 
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/Everhood/2.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-						<div class="numbertext">2 / 3</div>
-						<img src="images/portfolio/modals/Everhood/3.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-						<div class="numbertext">3 / 3</div>
-						<img src="images/portfolio/modals/Everhood/4.jpg" style="width:100%">
-						</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
+				<div id="modal-1" class="popup-modal slider mfp-hide">	
 
-				   <div class="description-box">
-					  <h4>Everhood Eternity Edition</h4>		      
-					  <p>Everhood Eternity Edition presents an unconventional and artistic fusion of rhythm-based gameplay, exploration with role-playing elements and an abstract narrative. Its musical gameplay challenges players' reflexes, engaging them in rhythmic battles, and immerses them in a mesmerizing and otherworldly universe. Its experimental gameplay takes ideas from classic 16 bit era RPG titles, and modern games like Undertale, Guitar Hero and Deltarune.
-					<br><br>
-						The narrative of the is subjective and leaves a lot of room for individual interpretation, inviting players to delve into its enigmatic world, questioning the nature of reality, and contemplating the deeper meanings and themes embedded within the game's surreal storytelling. 
-					<br><br>
-						The port not only includes the content that is already available on other platforms but also enhances it with 16 new battles made by level designers from the Everhood community, and featuring music from the following 11 renowned composers, and represent a real challenge for the most skilled ones.
-					  </p>
-						<hr>
-					 <p>
-					  Main tasks involved Porting and integrating Services such as: Activities (PlayStation 5), User Management (Xbox One and Xbox Series) and Achievements/Trophies, Mod Content Integration, SaveSystem, Online Leaderboards and Shader Programming (All Consoles)
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed for Blitworks Games, working as Unity Console Programmer</li>
-						<li>Built with Unity for PS4, PS5, Xbox One and Xbox Series, based on Steam and Nintendo Switch versions</li>
-						<br><br>
-					</div>
+				</div> <!-- /modal-1 -->
 
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/1WzuBELNYZg?si=3VArXYcFEDK9lA8V"></iframe></center> 
-					  
-					  <br>
+				<div id="modal-2" class="popup-modal slider mfp-hide">	
 
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://store.playstation.com/es-es/product/EP7652-PPSA09760_00-EVERHOOD000PS5EU/ class="button button-primary">PlayStation Network Page</a></center>
-							<center><a href=https://www.xbox.com/en-us/games/store/everhood-eternity-edition/9npncd6b83wp class="button button-primary">Xbox Page</a></center>
-						</div>   		
-					</div>
-				   </div>
+			   	</div> <!-- /modal-2 -->
 
-				 <div class="link-box">
-					<a href="https://blitworks.com/game/everhood-eternity-edition/">Publisher's Game Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>		      
+			   	<div id="modal-3" class="popup-modal slider mfp-hide">	 
 
-			    </div> <!-- /modal-01 -->
+			   	</div> <!-- /modal-3 -->
 
-				<div id="modal-02" class="popup-modal slider mfp-hide">	
+				<div id="modal-4" class="popup-modal slider mfp-hide">	
 
-					<div class="slideshow-container">
+			   	</div> <!-- /modal-4 -->
 
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/Pirates/1.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/Pirates/2.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/Pirates/5.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
+			   	<div id="modal-5" class="popup-modal slider mfp-hide">	   
 
-				   <div class="description-box">
-					  <h4>Pìrates Outlaws</h4>		      
-					  <p>Pirates Outlaws is a roguelike card battler acclaimed by critics and players in which you navigate dangerous seas in order to defeat every outlaw and their masters in tense combats. The game offers plenty of content and unlockables, diverse game modes and a beautiful papercraft artstyle. Your expedition will be full of ambushes and challenges, so get ready, build your card deck and plan deadly combos to become the most reputed pirate!
-					<br>
-					  </p>
-						<hr>
-					 <p>
-					  Main tasks involved adapting the control scheme and UI, as well as integrating Services such as:User Management (Xbox One and Xbox Series) and Achievements/Trophies, SaveSystem (All Consoles)
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed for Blitworks Games, working as Unity Console Programmer</li>
-						<li>Built with Unity for Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One and Xbox Series based on Steam version</li>
-						<br><br>
-					</div>
+		  		</div> <!-- /modal-5 -->
 
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/Fda8rgiJiVc?si=G98DYm-W1evQ2OL4"></iframe></center> 
-					  
-					  <br>
+				<div id="modal-6" class="popup-modal slider mfp-hide">	
 
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://www.nintendo.com/us/store/products/pirates-outlaws-switch/ class="button button-primary">Nintendo eShop Page</a></center>
-							<center><a href=https://store.playstation.com/en-us/product/UP2106-CUSA28868_00-PIRATESOUTLAWS00 class="button button-primary">PlayStation Network Page</a></center>
-							<center><a href=https://www.xbox.com/es-ES/games/store/pirates-outlaws/9nvb18kphc2v class="button button-primary">Xbox Page</a></center>
-						</div>   		
-					</div>
-				   </div>
+		  		</div> <!-- /modal-6 -->
 
-				 <div class="link-box">
-					<a href="https://blitworks.com/game/pirates-outlaws/">Publisher's Game Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>		      
+		  		<div id="modal-7" class="popup-modal slider mfp-hide">	
 
-				</div> <!-- /modal-02 -->
+	  			</div> <!-- /modal-7 -->
 
-				<div id="modal-03" class="popup-modal slider mfp-hide">	
+				<div id="modal-8" class="popup-modal slider mfp-hide">	
 
-					<div class="slideshow-container">
+				</div> <!-- /modal-8 -->
 
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/DDB/2.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/DDB/3.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/DDB/4.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
+				<div id="modal-9" class="popup-modal slider mfp-hide">	   
 
-				   <div class="description-box">
-					  <h4>District Dance Battle</h4>		      
-					  <p>District Dance Battle is a rhythm game in which you will play as Perico, the best Dancer known in Murcia, in his adventures in Madrid, looking forward to becoming the best Dancer in Spain. The campaign includes 5 different levels, each one with an original song (and a different genre), as well as some commercial songs in the Free mode. Each different level can be played both solo or in local competitive mode, and also has a Hard Mode for those who look for a challenge.
-						<br>
-					  </p>
-						<hr>
-					 <p>
-					  Main tasks involved Gameplay design and programming, as well as Level Design
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Awarded as Best Game by the Audience at <a href="https://twitter.com/FreeStylers_Dev/status/1199244229828108288?ref_src=twsrc%5Etfw">FIMP 2019</a></li>
-						<li>Built with SDL2 and C++</li>
-						<br><br>
-					</div>
-
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/1o83elCt6Gc?si=Ar_DYGzgAz_nQJWx"></iframe></center> 
-					  <br>
-
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/freesstylers/District-Dance-Battle class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://freestylers-studio.itch.io/district-dance-battle-sdl">Itch.io Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>		      
-
-
-			   	</div> <!-- /modal-03 -->
-
-			   	<div id="modal-04" class="popup-modal slider mfp-hide">	
-
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/Tefege/1.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/Tefege/2.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/Tefege/3.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>Tefege</h4>		      
-					  <p>TeFeGe is an online multiplayer shooter, with a Top Down perspective, in which the player will be able to choose from 5 different characters, each one with a different weapon and special ability, to be paired with an opponent in a 3 round duel. The game was part of a project in Matchmaking Research, so most of the focus was put into measuring the abilities of the player, based on the performance shown, and the consequent ranking and matchmaking of the players.
-					<br>
-					  </p>
-						<hr>
-					 <p>
-					  Main tasks involved Gameplay design and programming, as well as the matchmaking side
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Final Degree Project subject of the Degree in Videogame Development at Universidad Complutense de Madrid, focusing on Matchmaking</li>
-						<li>Built with Unity, as well as Mirror for the server side</li>
-						<br><br>
-					</div>
-
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/pD1_a9u3ve0?si=uYd44rJ_dWc5JmOI"></iframe></center> 
-					  <br>
-
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/HoracioStudios/TeFeGe class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://tefege.itch.io/tefege">Itch.io Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>		      
-
-			   	</div> <!-- /modal-04 -->
-
-				   <div id="modal-05" class="popup-modal slider mfp-hide">	
-
-					<!-- Slideshow container -->
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/Mauritius/1.png" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/Mauritius/2.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/Mauritius/3.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>Mauriçius Nativitatem</h4>		      
-					  <p>Mauriçius Nativitatem is a rhythm game inspired by Patapon (the player is given patterns that have to be repeated in order to succeed), in which you will be helping Mauriçius, our fish main character, to give birth to his son, by collecting souls and blood in order to be able to perform the ritual needed.
-						<br>
-					  </p>
-						<hr>
-					 <p>
-					  Main tasks involved Gameplay and Systems programming
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the JamOn 2021, with "Birth" as theme</li>
-						<li>Awarded as the 2nd Best Game in the <a href="https://itch.io/jam/jamon2021">JamOn 2021</a></li>
-						<li>Built with Unity</li>
-						<br><br>
-					</div>
-
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/Wj0YmlpuOug?si=vokDxG6EKk-xXiD8"></iframe></center> 
-					  <br>
-
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/freesstylers/JamOn class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://freestylers-studio.itch.io/mauricius-nativitatem">Itch.io Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>		      
-
-			   	</div> <!-- /modal-05 -->
-
-			   	<div id="modal-06" class="popup-modal slider mfp-hide">	
-
-					<!-- Slideshow container -->
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/Louse/2.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/Louse/3.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/Louse/4.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>Louse on the Loose</h4>		      
-					  <p>Louse on the Loose is a Top-Down action game in which you will play as a mutant Louse whose objective is to climb the head of its host, cutting as much hairs as possible in the way (completely, thus applying the "Root" theme for the Global Game Jam 2023) and fighting different enemmies, including shampoo. This game may or may not include:<br>
-						 • Lice<br>
-						 • Skin<br>
-						 • Trans Rights<br>
-						 • One or several violations of the Geneva Convention<br>
-					  </p>
-						<hr>
-					 <p>
-					  Main tasks involved Gameplay and Systems programming
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Global Game Jam 2023, with "Roots" as theme</li>
-						<li>Awarded as Most Innovative Game by at <a href="https://globalgamejam.org/2023/jam-sites/madrid-ggj-universidad-complutensevoxel-school">Voxel School/UCM site for Global Game Jam 2023</a></li>
-						<li>Built with Unity</li>
-						<br><br>
-					</div>
-
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/xTVrDzd_FIw?si=qicq--yiLXvq5TWJ"></iframe></center> 
-					  <br>
-
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/freesstylers/GGameJam2023 class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://freestylers-studio.itch.io/louse-on-the-loose">Itch.io Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>		      
-
-
-		  		</div> <!-- /modal-06 -->
-
-				  <div id="modal-07" class="popup-modal slider mfp-hide">	
-
-				   <div class="description-box">
-					  <h4>Motor Casa Paco</h4>		      
-					  <p>Motor Casa Paco is a 3D Game Engine built with C++ in a 4-month span. Thanks to its component-based architecture and data-driven structure, once a basic project core is established, it is easy to add more content to the project.<br><br>
-
-						The UI side is managed with CEGUI, which uses its own layout system that allows developers to combine 2D and 3D views without further problems.<br><br>
-						
-						FMOD is used to handle the whole sound system, allowing the use of dynamic and adaptative music, as well as different channels for SFX and music.<br><br>
-						
-						Last but not least, Bullet Physics controls all the Physics related side, allowing the use of different shapes with a great performance.
-					  </p>
-						<hr>
-					 <p>
-					  Main tasks involved Architecture Design and UI Systems Programming
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Projects 3 subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li>
-						<li>Built with Ogre3D (Core), Bullet Physics (Physics), FMOD (Sound), CEGUI (UI) and C++</li>
-						<br><br>
-					</div>
-					</div>
-
-				 <div class="link-box">
-					<a href="https://github.com/freesstylers/GGameJam2023">Github Repository</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>		      
-
-
-		  		</div> <!-- /modal-07 -->
-
-		  		<div id="modal-08" class="popup-modal slider mfp-hide">	
-
-					<!-- Slideshow container -->
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/Canicas/2.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/Canicas/3.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/Canicas/5.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>Vaya Canicastañazos</h4>		      
-					  <p>Vaya Canicastañazos is a 3D platform game in which the player will be controlling a marble through 16 different levels, with 3 different collectables each. Inspired by Monkey Ball, you will need to be careful not to fall from the level to avoid unnecesary restarts. The player will also be able to beat the achieved best times for an additional challenge.
-					  </p>
-						<hr>
-					 <p>
-					  Main tasks involved UI Programming and Level Design.
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Projects 3 subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li>
-						<li>Built with Motor Casa Paco (Custom Game Engine based on Ogre3D) and C++</li>
-						<br><br>
-					</div>
-
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/nYWnfBoHSTE?si=HNKimviFfWs0Sw4V"></iframe></center> 
-					  <br>
-
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/freesstylers/Vaya-Canicastanyazos class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://freestylers-studio.itch.io/vaya-canicastanhazos">Itch.io Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>
-
-	  			</div> <!-- /modal-08 -->
-
-				<div id="modal-09" class="popup-modal slider mfp-hide">	
-
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/Pastilla/1.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/Pastilla/2.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/Pastilla/3.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>A Toda Pastilla</h4>		      
-					  <p>A Toda Pastilla is a vertical bullet hell in which the player will be giving pills (shooting) to elder people (enemies), with the ability to stack different special abilities to overcome the increasing difficulty, always surrounded by the dynamic music system.
-					  </p>
-						<hr>
-					 <p>
-					  Main tasks involved UI Programming and Game Design.
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Projects 3 subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li>
-						<li>Built with Motor Casa Paco (Custom Game Engine based on Ogre3D) and C++</li>
-						<br><br>
-					</div>
-
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/CEcCk1sWxec?si=WX64ZvEQFab2czMV"></iframe></center> 
-					  <br>
-
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/freesstylers/A-Toda-Pastilla class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://freestylers-studio.itch.io/a-toda-pastilla">Itch.io Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>
-				</div> <!-- /modal-06 -->
+		  		</div> <!--/modal-9-->
 
 				<div id="modal-10" class="popup-modal slider mfp-hide">	
 
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/FDI/2.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/FDI/3.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/FDI/4.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>FDI</h4>		      
-					  <p>FDI (Federal Department of Investigations) is a narrative adventure game in which the player takes control of Eurico, a student of the Computer Science Faculty (which serves as the game scenery, with a few adaptations for story and humour purposes), who is involved as a witness in the Dean murder, leading to a bigger investigation to solve the mystery.
-					  </p>
-						<hr>
-					 <p>
-					  Main tasks involved Gameplay Programming and Level Design.
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Gift Jam 2021</li>
-						<li>Built with Unity</li>
-						<br><br>
-					</div>
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/freesstylers/GiftJam2021 class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://freestylers-studio.itch.io/fdi">Itch.io Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>
-
-				</div> <!-- /modal-06 -->
+				</div> <!-- /modal-10 -->
 
 				<div id="modal-11" class="popup-modal slider mfp-hide">	
 
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/Cancedo/2.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/Cancedo/3.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/Cancedo/4.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>Una Voz en Cancedo</h4>		      
-					  <p>Behind every eerie silence there is always a rumble ready to shatter it to pieces.<br><br>
-
-						Delve into Cancedo, a small rural village where its wacky characters are destined to be completely ripped apart by nightfall.<br><br>
-						
-						Investigate, dialogue, obtain and combine items in this adventure game to help the villagers and solve their problems as a sinister script awaits them in their death.
-					  </p>
-						<hr>
-					 <p>
-					  Main tasks involved Systems Programming and Dialogue Writing.
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the <a href="https://itch.io/jam/indie-spain-jam-23">Indie Spain Game Jam 2023</a>, with "The Night Falls" as theme</li>
-						<li>Built with Unity</li>
-						<br><br>
-					</div>
-
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/63GtQDk2dgg?si=3Lm7YIP4wk4jbpVS"></iframe></center> 
-					  <br>
-
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/freesstylers/IndieSpainJam2023 class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://freestylers-studio.itch.io/una-voz-en-cancedo">Itch.io Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>
-
-				</div> <!-- /modal-06 -->
+				</div> <!-- /modal-11 -->
 
 				<div id="modal-12" class="popup-modal slider mfp-hide">	
 
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/Apruebame/1.png" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/Apruebame/2.png" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/Apruebame/3.png" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>Apruébame Esta</h4>		      
-					  <p>Tired of failing and failing, Ragnahilda has not only not given up, but is going to fight for her pass in the noblest of ways. A duel to the death with the most iconic professors of her faculty. Boxing. And to the rhythm of her favourite songs.<br><br>
-
-						• Female protagonist with the name of a Visigoth queen.<br>
-						• Not suitable for CPR<br>
-						• 100% own and original content	
-						<hr>
-					 <p>
-					  Main tasks involved Systems Programming.
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the <a href="https://itch.io/jam/gift-jam-2023">Gift Jam 2023</a></li>
-						<li>Built with Godot</li>
-						<br><br>
-					</div>
-
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/c1AQ84mtQfM?si=H7aEXOwN33r2rAYH"></iframe></center> 
-					  <br>
-
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/freesstylers/GiftJam2324 class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://freestylers-studio.itch.io/apruebame-esta">Itch.io Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>
-
-				</div> <!-- /modal-06 -->
+				</div> <!-- /modal-12 -->
 
 				<div id="modal-13" class="popup-modal slider mfp-hide">	
 
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/Cat/2.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/Cat/3.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/Cat/4.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>The Cat that Watched the stars (and viceversa)</h4>		      
-					  <p>Some say that cats can see beyond the planes of reality we humans are used to, and can even interact with entities beyond our comprehension.
-
-						Watch the starry sky and capture the shooting stars and fireworks that you, a curious kitty, reach out with your paw.
-						<hr>
-					 <p>
-					  Main tasks involved Systems and UI Programming.
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the <a href="https://itch.io/jam/mermelada-jam">Mermelada Jam 2023</a></li>
-						<li>Built with Godot (using C# and GDScript)</li>
-						<br><br>
-					</div>
-
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/kdeup3j2obk?si=jDR3MB6yqsUNB1_y"></iframe></center> 
-					  <br>
-
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/freesstylers/GiftJam2324 class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://freestylers-studio.itch.io/apruebame-esta">Itch.io Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>
-
-				</div> <!-- /modal-06 -->
+				</div> <!-- /modal-13 -->
 
 				<div id="modal-14" class="popup-modal slider mfp-hide">	
 
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/chess/2.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/chess/3.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/chess/4.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>Chess & Tails</h4>		      
-					  <p>Chess & Tails is a turn based RPG game that combines Chess mechanics with roguelike concepts. To apply the "Duality", the player is given 2 choices (Style, Offense and Defensive, and Weapon, Melee and Ranged) to determine the stats that will be used in battle. This system uses Chess pieces as enemies, with their characteristic moves, that you will be able to attack to advance to more difficult rounds. Prior to each level, a coin will be flipped, allowing the player to choose between 2 positive perks (if heads) or dealing with a negative one (if tails), which will be stacked through the game, making it easier (or harder) to go further.
-						<hr>
-					 <p>
-					  Main tasks involved Systems and Gameplay Programming.
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Global Game Jam 2022, with "Duality" as theme</li>
-						<li>Built with Unity</li>
-						<br><br>
-					</div>
-
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/IgnOry/GlobalGameJam2022 class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://gorn99.itch.io/chess-tails">Itch.io Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>
-
-				</div> <!-- /modal-06 -->
+				</div> <!-- /modal-14 -->
 
 				<div id="modal-15" class="popup-modal slider mfp-hide">	
 
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/settlers/1.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/settlers/2.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/settlers/3.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>Project Settlers</h4>		      
-					  <p>Project Settlers is a Resource Management game, in which the player will be in control of a population in need of help to survive, requiring shelter, food, water and resources to increase their happiness, with a retro style, mimicking old Windows UI.
-						<hr>
-					 <p>
-					  Main tasks involved Gameplay and UI Programming.
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Videogame Programming in Interpreted Languages subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li>
-						<li>Built with Phaser</li>
-						<br><br>
-					</div>
-
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/javiarias/Project-Settlers class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://javiarias.github.io/Project-Settlers/dist/">Game Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>
-
-				</div> <!-- /modal-06 -->
+				</div> <!-- /modal-15 -->
 
 				<div id="modal-16" class="popup-modal slider mfp-hide">	
 
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/paparazzi/1.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/paparazzi/2.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/paparazzi/3.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>Paparazzi Infiltration</h4>		      
-					  <p>Paparazzi Infiltration is a stealth game in which de player will control a Paparazzi in the 80s, which has to infiltrate in a Hotel to take photos of different stars, including Michael Jordan, Maradona, Michael Jackson, Darth Vader... always avoiding the guards, of course.
-						<hr>
-					 <p>
-					  Main tasks involved Gameplay Programming and Level Design.
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Projects 1 subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li>
-						<li>Built with Unity</li>
-						<br><br>
-					</div>
-
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/sKz53jmHGzA?si=tPeXZ9hFnrzD3-PY"></iframe></center> 
-					  <br>
-
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/DavidCarmonaFauste/Paparazzi class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a href="https://davidcarmonafauste.github.io/Paparazzi/">Web Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>
-				</div> <!-- /modal-06 -->
+				</div> <!-- /modal-16 -->
 
 				<div id="modal-17" class="popup-modal slider mfp-hide">	
 
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/outrun/1.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/outrun/2.jpg" style="width:100%">
-							</div>
-								
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>Outrun</h4>		      
-					  <p>Clone of the classic Out Run game, developed from scratch in a multiplatform project, both for PC and PlayStation 4, including the use of the official SDK and Tools provided by Sony.
-						<hr>
-					 <p>
-					  Main tasks involved Programming for different platforms.
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Videogames in Console subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li>
-						<li>Built with SDL2, C++ and C</li>
-						<br><br>
-					</div>
-					  <div class="row button-section"> 		
-					</div>				   </div>
-
-				 <div class="link-box">
-					<a>Code Not available due to NDA</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>
-
-				</div> <!-- /modal-06 -->
+				</div> <!-- /modal-17 -->
 
 				<div id="modal-18" class="popup-modal slider mfp-hide">	
 
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/off/1.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/off/2.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/off/3.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>Off The Line</h4>		      
-					  <p>Clone of "Off the Line", developed from scratch in a multiplatform project both for PC and Android, including the use of Android Studio.
-						<hr>
-					 <p>
-					  Main tasks involved Programming.
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Videogames in Mobile subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li>
-						<li>Built with Android Studio and Java</li>
-						<br><br>
-					</div>
-
-					  <br>
-			   </div>
-
-				 <div class="link-box">
-					<a href="https://github.com/javiarias/Moviles/tree/main/Practica_2">Github Repository</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>
-
-				</div> <!-- /modal-06 -->
+				</div> <!-- /modal-18 -->
 
 				<div id="modal-19" class="popup-modal slider mfp-hide">	
 
-					<div class="slideshow-container">
-
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/mazes/1.jpg" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/mazes/2.jpg" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/mazes/3.jpg" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
-
-				   <div class="description-box">
-					  <h4>Mazes & More</h4>		      
-					  <p>Clone of "Mazes & More", developed with the original game assets in a multiplatform project both for PC and Android.
-						<hr>
-					 <p>
-					  Main tasks involved Programming.
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Videogames in Mobile subject of the Degree in Videogame Development at Universidad Complutense de Madrid</li>
-						<li>Built with Unity</li>
-						<br><br>
-					</div>
-
-					  <br>
-			   </div>
-
-				 <div class="link-box">
-					<a href="https://github.com/javiarias/Moviles/tree/main/Practica%203">Github Repository</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>
-
-				</div> <!-- /modal-06 -->
+				</div> <!-- /modal-19 -->
 
 				<div id="modal-20" class="popup-modal slider mfp-hide">	
 
-					<!-- Slideshow container -->
-					<div class="slideshow-container">
+				</div> <!-- /modal-20 -->
 
-						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
-						<div class="numbertext">1 / 3</div>
-						<img src="images/portfolio/modals/DGT/1.png" style="width:100%">
-						</div>
-					
-						<div class="mySlides fade">
-							<div class="numbertext">2 / 3</div>
-							<img src="images/portfolio/modals/DGT/2.png" style="width:100%">
-							</div>
-					
-							<div class="mySlides fade">
-								<div class="numbertext">3 / 3</div>
-								<img src="images/portfolio/modals/DGT/3.png" style="width:100%">
-								</div>
-					
-						<!-- Next and previous buttons -->
-						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-						<a class="next" onclick="plusSlides(1)">&#10095;</a>
-					</div>
-					<br>
-					
-					<!-- The dots/circles -->
-					<div style="text-align:center">
-						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
-					</div>    	
+				<div id="modal-21" class="popup-modal slider mfp-hide">	
 
-				   <div class="description-box">
-					  <h4>Louse on the Loose</h4>		      
-					  <p>Gibbon wants BANANA. Gibbon has motorized trycicle. There are no BANANAS on sight. But there are people and animals around the city. Maybe they have BANANAS?</p>
-						<hr>
-					 <p>
-					  Main tasks involved Gameplay, Level Design and Systems programming
-					</p>
-					<hr>
-					<div class="categories">
-						<li>Developed as part of the Global Game Jam 2024, with "Make Me Laugh" as theme</li>
-						<li>Awarded as Best Art by the Jury and Best Game by the Public at <a href="https://globalgamejam.org/jam-sites/2024/madrid-game-jam-ucm">Voxel School/UCM site for Global Game Jam 2024</a></li>
-						<li>Built with Godot</li>
-						<br><br>
-					</div>
+				</div> <!-- /modal-21 -->
 
-					  <center><iframe class="embed-responsive-item" width="640" height="360" src="https://www.youtube.com/embed/uJnBRfu4508?si=5FkZftybZpf3Z1gw"></iframe></center> 
-					  <br>
+				<div id="modal-22" class="popup-modal slider mfp-hide">	
 
-					  <div class="row button-section">
-						<div class="col-twelve">
-							<center><a href=https://github.com/freesstylers/GoofyAhhCar class="button button-primary">Github Repository</a></center>
-						</div>   		
-					</div>				   </div>
+				</div> <!-- /modal-22 -->
 
-				 <div class="link-box">
-					<a href="https://freestylers-studio.itch.io/driftin-gibbon-time">Itch.io Page</a>
-					  <a href="#" class="popup-modal-dismiss">Close</a>
-				 </div>		      
+				<div id="modal-23" class="popup-modal slider mfp-hide">	
 
+				</div> <!-- /modal-23 -->
 
-		  		</div> <!-- /modal-06 -->
+				<div id="modal-24" class="popup-modal slider mfp-hide">	
 
+				</div> <!-- /modal-24 -->
 
 			   <!-- modal popups - end
 			============================================================= -->
@@ -1829,11 +652,11 @@
 							<ul>
 								<li><strong>Project #0</strong> (Under NDA)
 									<ul>
-										<li>Unity 2021 | C#</li>
-										<li>PC - Standalone, PC - Steam, Nintendo Switch, PlayStation 4, PlayStation 5, PC - Windows Store, Xbox One and Xbox Series (GDK)</li>
-										<li>Multiplayer Party Game based on minigames with sport themes, based on licensed TV Series</li>
+										<li>Unity 2022 | C#</li>
+										<li>PC - Standalone, PC - Steam PC - Epic Games, Nintendo Switch, PlayStation 4, PlayStation 5, PC - Windows Store, Xbox One and Xbox Series (GDK)</li>
+										<li>Adventure Platformer Game based on narrative and minigames, based on licensed TV Series</li>
 										<li>Systems implementation: <strong>Memory and performance management</strong>, Resource loading (using Addressables), Savedata, <strong>Input and Controller Management</strong>, VO Dubbing implementation</li>
-										<li>Console Integration: Savesystem, Achievements and Trophies and Activities, User Management, <strong>Size Compression (for Nintendo Switch Cartridge)</strong></li>
+										<li>Console Integration: Savesystem, Achievements/Trophies/Activities, User Management</li>
 										<li>Communication with Production and QA, deadline and contents agreements</li>
 									</ul>
 								</li> 
@@ -1864,20 +687,6 @@
 							<ul>
 								<li><strong>Project #0</strong>
 									<ul>
-										<li>Unity 2019, 2020 and 2022 | C#</li>
-										<li>Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One and Xbox Series (<strong>XDK/GDK</strong>)</li>
-										<li>Hardcore Tycoon game, originally from PC (similar to Rollercoaster Tycoon)</li>
-										<li>Gamepad based control scheme design and Implementation</li>
-										<li>Console Integration: Savesystem, Achievements and Trophies, User Management</li>
-										<li><strong>DLC and Mods (User Generated Content) Integration</strong></li>
-										<li>Performance optimization (<strong>C++ Plugins development</strong>), <strong>Profiling and fixing different Memory Leaks</strong></li>
-										<li>Communication with client regarding features and needed adaptations, as well as Nintendo for performance optimization</li>
-									</ul>
-								</li> 
-							</ul>
-							<ul>
-								<li><strong>Project #1</strong>
-									<ul>
 										<li>GameMaker | GML</li>
 										<li>Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One, Xbox Series</li>
 										<li>Cooperative multiplayer beat' em up, originally from PC</li>
@@ -1886,7 +695,7 @@
 								</li>  
 							</ul>
 							<ul>
-								<li><strong>Project #2</strong>
+								<li><strong>Project #1</strong>
 									<ul>
 										<li>Unity 2021 | C#</li>
 										<li>Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One, Xbox Series</li>
@@ -1897,7 +706,7 @@
 								</li>  
 							</ul>
 							<ul>
-								<li><strong>Project #3</strong>
+								<li><strong>Project #2</strong>
 									<ul>
 										<li>Unity 2022 | C#</li>
 										<li>Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One, Xbox Series</li>
