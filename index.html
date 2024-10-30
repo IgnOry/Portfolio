@@ -67,8 +67,6 @@
 					portfolioDataArray.push(portfolioTitle);
 				}
 
-				var wrapper = $('#folio-wrapper'), container;
-
 				for (var key in portfolioDataArray)
 				{
 					var s =('<div class="folio-item-cell"><h3 class="folio-title">' + portfolioDataArray[key].title + '</h3><span class="folio-types">' + portfolioDataArray[key].company + '<br>' + portfolioDataArray[key].context + '<br>Published on ' + portfolioDataArray[key].platforms + '<br>' + portfolioDataArray[key].year +'</span></div></div></a></div></div>');
@@ -915,14 +913,26 @@
 	  let dots = document.getElementsByClassName("dot");
 	  if (n > slides.length) {slideIndex = 1}    
 	  if (n < 1) {slideIndex = slides.length}
-	  for (i = 0; i < slides.length; i++) {
+	  
+	  for (i = 0; i < slides.length; i++) 
+	  {
 		slides[i].style.display = "none";  
 	  }
-	  for (i = 0; i < dots.length; i++) {
+	  
+	  for (i = 0; i < dots.length; i++) 
+	  {
 		dots[i].className = dots[i].className.replace(" active", "");
 	  }
-	  slides[slideIndex-1].style.display = "block";  
-	  dots[slideIndex-1].className += " active";
+
+	  if (slides.length > 0)
+	  {
+	 	slides[slideIndex-1].style.display = "block";  
+	  }
+
+	  if (dots.length > 0)
+	  {
+	  	dots[slideIndex-1].className += " active";
+	  }
 	}
 	</script>
 
