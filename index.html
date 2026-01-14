@@ -99,7 +99,7 @@
 					
 					if (portfolioDataArray[key].trailer != "")
 					{
-						s += ('<center><iframe class="embed-responsive-item" width="640" height="360" src="' + portfolioDataArray[key].trailer + '"></iframe></center>');
+						s += ('<center><iframe class="embed-responsive-item" "referrerpolicy="strict-origin-when-cross-origin" width="640" height="360" src="' + portfolioDataArray[key].trailer + '"></iframe></center>');
 					}
 					
 					s += ('<br><div class="row button-section"><div class="col-twelve"><center>');
@@ -221,6 +221,20 @@
    <div class="row portfolio-content">
 
 	   <div class="col-twelve">
+
+				   <!-- portfolio-wrapper -->
+				   <div id="folio-wrapper" class="block-1-2 block-mob-full stack">
+
+					<div class="bgrid folio-item" onclick="currentSlide(1)">
+						<div class="item-wrap">
+							<img id="titleImage25" src="images/portfolio/Gabbys.png">
+						   <a href="#modal-25" class="overlay">	                  	           
+							  <div id="title25" class="folio-item-table">
+																
+							  </div>                    
+						   </a>
+						</div>	               
+						 </div> <!-- /folio-item -->
 
 		   <!-- portfolio-wrapper -->
 		 <div id="folio-wrapper" class="block-1-2 block-mob-full stack">
@@ -498,7 +512,8 @@
 					 </div>                    
 				  </a>
 			   </div>
-				</div> <!-- /folio-item -->  
+				</div> <!-- /folio-item -->
+				
 			<!-- modal popups - begin
 			============================================================= -->
 				<div id="modal-0" class="popup-modal slider mfp-hide">	
@@ -601,6 +616,9 @@
 
 				</div> <!-- /modal-24 -->
 
+				<div id="modal-25" class="popup-modal slider mfp-hide">	
+
+				</div> <!-- /modal-24 -->
 			   <!-- modal popups - end
 			============================================================= -->
 
@@ -650,10 +668,10 @@
 							<ul>
 								<li><strong>Project #0</strong> (Under NDA)
 									<ul>
-										<li>Unity 2022 | C#</li>
-										<li>PC - Standalone, PC - Steam PC - Epic Games, Nintendo Switch, PlayStation 4, PlayStation 5, PC - Windows Store, Xbox One and Xbox Series (GDK)</li>
-										<li>Adventure Platformer Game based on narrative and minigames, based on licensed TV Series</li>
-										<li>Systems implementation: <strong>Memory and performance management</strong>, Resource loading (using Addressables), Savedata, <strong>Input and Controller Management</strong>, VO Dubbing implementation</li>
+										<li>Unity 6 | C#</li>
+										<li>PC - Standalone, PC - Steam, PC - Windows 10, Nintendo Switch, PlayStation 4, PlayStation 5 and Xbox Series (GDK)</li>
+										<li>Adventure Sandbox Game based on narrative and minigames, based on licensed TV Series</li>
+										<li>Systems implementation: <strong>Performance management</strong>, Resource loading (using Addressables), Savedata, <strong>Input and Controller Management</strong>, VO Dubbing implementation</li>
 										<li>Console Integration: Savesystem, Achievements/Trophies/Activities, User Management</li>
 										<li>Communication with Production and QA, deadline and contents agreements</li>
 									</ul>

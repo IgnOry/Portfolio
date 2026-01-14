@@ -6,7 +6,7 @@
 					"context": "Professional Project - Lead Programmer",
 					"platforms": "Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One, Xbox Series, Steam, Windows 10",
 					"year": "2024",
-					"company" : "Blitworks Publishing",
+					"company" : "Outright Games",
 					"titleImage" : "images/portfolio/Giganto.jpg",
 					"showcaseImages": 
 						[
@@ -693,6 +693,45 @@
 						],
 				"buttonPage": "",
 				"pageTitle" : ""			
+		},
+		{
+			"title": "DreamWorks Gabby’s Dollhouse: Ready to Party",
+					"context": "Professional Project - Lead Programmer",
+					"platforms": "Nintendo Switch, PlayStation 4, PlayStation 5, Xbox One, Xbox Series, Steam, Windows 10",
+					"year": "2025",
+					"company" : "Outright Games",
+					"titleImage" : "images/portfolio/Gabbys.png",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/gabby/gabby1.png",
+							"images/portfolio/modals/gabby/gabby2.png",
+							"images/portfolio/modals/gabby/gabby3.png"
+						],
+					"description" : "Inspired by DreamWorks Animation’s Gabby’s Dollhouse, fans can throw the greatest party ever with Gabby and Pandy Paws!  Start in Crafting World with Mama and Baby Box, then join Kitty Fairy in the magical Fairy Tail Garden. Blast off to Caturn and groove with DJ Catnip. Whip up something tasty with Cakey in Sweet Treat Mountain, dive into Mermaid-lantis for treasure with MerCat, and race through the Playroom with Carlita. Enjoy challenges and minigames solo or with a friend in local co-op mode to find items for the party and cute outfits to customize Gabby.   Learn, play, and create. Everyone’s invited!",
+					"tasks" : "Main tasks involved Systems implementation (Memory and performance management, Resource loading with Addressables, Savedata, Input and Controller Management, VO Dubbing implementation) and Console Integration (Savesystem, Achievements/Trophies/Activities, User Management and size compression for Nintendo Switch Cartridge), as well as communication with Production and QA, deadline and contents agreements.",
+					"categories" : "<li>Developed for Infinigon Games, working as Lead Programmer</li><li>Built with Unity for Nintendo Switch, PS4, PS5, Xbox One, Xbox Series and PC (Steam and Windows 10)</li>",
+					"trailer" : "https://www.youtube.com/embed/_A8DId33Xhw?si=muqMgyNwaW9Slm6z",
+					"links": 
+						[
+							{
+								"store": "Nintendo eShop Page",
+								"link": "https://www.nintendo.com/en-gb/Games/Nintendo-Switch-games/DreamWorks-Gabby-s-Dollhouse-Ready-to-Party-2880966.html"
+							},
+							{
+								"store": "PlayStation Network Page",
+								"link": "https://store.playstation.com/en-gb/concept/10012516"
+							},
+							{
+								"store" : "Xbox Page",
+								"link" : "https://www.xbox.com/en-GB/games/store/dreamworks-gabbys-dollhouse-ready-to-party/9NFQ1XMXDLN6"
+							},
+							{
+								"store": "Steam Page",
+								"link": "https://store.steampowered.com/app/3222830/DreamWorks_La_casa_de_muecas_de_Gabby__Listos_para_la_fiesta/"
+							}
+						],
+				"buttonPage": "https://outrightgames.com/games/gabbys-dollhouse-ready-to-party/",
+				"pageTitle" : "Publisher's Game Page"				
 		}
 	]
 }
