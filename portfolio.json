@@ -732,6 +732,45 @@
 						],
 				"buttonPage": "https://outrightgames.com/games/gabbys-dollhouse-ready-to-party/",
 				"pageTitle" : "Publisher's Game Page"				
+		},
+		{
+			"title": "Sesame Street: Friends & Fun",
+					"context": "Professional Project - Lead Programmer",
+					"platforms": "Nintendo Switch, PlayStation 4, PlayStation 5, Xbox Series, Steam, Windows 10",
+					"year": "2026",
+					"company" : "Outright Games",
+					"titleImage" : "images/portfolio/Sesames.png",
+					"showcaseImages": 
+						[
+							"images/portfolio/modals/sesames/Sesames1.png",
+							"images/portfolio/modals/sesames/Sesames2.png",
+							"images/portfolio/modals/sesames/Sesames3.png"
+						],
+					"description" : "Welcome to Sesame Street, a place to play, laugh and grow. From the moment you arrive, there’s so much to do. Join Elmo, Tango and the rest of your Sesame Street friends around the neighbourhood! Walk around with Grover, plant a magical giant beanstalk in Abby’s Garden find useful tools and rubber ducks in the Community Garden with Bert & Ernie, and work on your number and puzzle skills in Count von Count’s Mansion. Or cook, mix and laugh along with Cookie Monster in his Foodie Truck! The fun and exploration never ends in Sesame Street.",
+					"tasks" : "Main tasks involved Systems implementation (Memory and performance management, Resource loading with Addressables, Savedata, Input and Controller Management, VO Dubbing implementation) and Console Integration (Savesystem, Achievements/Trophies/Activities, User Management and Touch Screen implementation for Nintendo Switch Cartridge), as well as communication with Production and QA, deadline and contents agreements.",
+					"categories" : "<li>Developed for Infinigon Games, working as Lead Programmer</li><li>Built with Unity for Nintendo Switch, PS4, PS5, Xbox Series and PC (Steam and Windows 10)</li>",
+					"trailer" : "https://www.youtube.com/embed/F2n32V2iJYs?si=Uw2Xk7y-dbdz_5X7",
+					"links": 
+						[
+							{
+								"store": "Nintendo eShop Page",
+								"link": "https://www.nintendo.com/us/store/products/sesame-street-friends-and-fun-switch/"
+							},
+							{
+								"store": "PlayStation Network Page",
+								"link": "https://store.playstation.com/en-us/concept/10018376"
+							},
+							{
+								"store" : "Xbox Page",
+								"link" : "https://www.xbox.com/en-US/games/store/sesame-street-friends-fun/9nhsc624gv7x"
+							},
+							{
+								"store": "Steam Page",
+								"link": "https://store.steampowered.com/app/3930330/Sesame_Street_Amigos_y_Risas/"
+							}
+						],
+				"buttonPage": "https://outrightgames.com/game/sesame-street-friends-and-fun/",
+				"pageTitle" : "Publisher's Game Page"				
 		}
 	]
 }
